@@ -15,11 +15,6 @@
 
 6. gallery of trainers clients progress and testimonials.
 
-7. ability to sign up for specific workout classes 
-
-8. create profile that stores users info, tracks progress
-
-
 FEATURES FOR THE SITE 
 
 Be able to schedule classes with the trainer based on the schedule uploaded by the trainer
