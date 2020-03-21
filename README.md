@@ -25,9 +25,13 @@ Track personal progress by logging what workouts have been completed on which da
 
 Use the BMI calculator to show their current BMI based on the info that was first entered by user, and adding the workouts completed to it. 
 
-Select from different workout packages available, this will be where the workout manager comes into play. 
+Select from different workout packages available, (packages are done with the trainer) this will be where the workout manager comes into play. 
 
 Match the user with others that are on a similar schedule and workout plan and BIM to then compare progess and stats 
+
+restrict access to progress tracker and user comparison based on the above boolean 
+
+last step have to schedule the first class 
 
 PACKAGES
 
@@ -39,5 +43,6 @@ PACKAGES
 
     Advanced muscle building - for a seasoned user who is looking to build muscle mass
 
+FOr every user we need to create a calendar 
 
 
