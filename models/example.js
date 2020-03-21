@@ -1,7 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("Example", {
-    text: DataTypes.STRING,
-    description: DataTypes.TEXT
+  var user = sequelize.define("user", {
+    username: DataTypes.STRING,
+    password: DataTypes.STRING,
+    height: DataTypes.INTEGER,
+    weight: DataTypes.INTEGER,
+    goals: DataTypes.STRING,
+    phoneNumber: DataTypes.STRING,
+    email: DataTypes.STRING,
+    firstClass: DataTypes.BOOLEAN
   });
-  return Example;
+  return user;
 };

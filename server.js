@@ -3,7 +3,6 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
-
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -43,5 +42,22 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
-
+console.log("test");
 module.exports = app;
+
+// Nylas.config({
+//     clientId: ez7fmdadjwbw043o7h7ldyq7x,
+//     clientSecret: "7qpppiqb6roj2vsyhszumy7g7",
+// });
+
+// // Return all accounts connected to your Nylas App.
+// Nylas.accounts.list().then(accounts => {
+//     for (let account of accounts) {
+//       console.log(
+//         `Email: ${account.emailAddress} | `,
+//         `Billing State: ${account.billingState} | `,
+//         `Sync State: ${account.syncState}`,
+//         `ID: ${account.id}  | `
+//       );
+//     }
+//   });
