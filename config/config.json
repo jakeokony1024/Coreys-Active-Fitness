@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "tomsucks12",
-    "database": "",
+    "database": "coreysFitnessdb",
     "host": "localhost",
     "dialect": "mysql"
   },
