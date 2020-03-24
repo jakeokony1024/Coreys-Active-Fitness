@@ -37,7 +37,8 @@ body {
 	height: 100%;
 	font-family: "Poppins", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+	/* font-smoothing: antialiased;
+ */
 }
 
 h1,
@@ -1147,7 +1148,7 @@ ol {
 
 .copyright-text p {
 	padding-top: 6px;
-	float: left;
+	/* float: left; */
 	color: #ffffff;
 	margin-right: 25px;
 	display: inline-block;
@@ -1213,7 +1214,7 @@ ol {
 }
 
 /*---------------------
-  Breadcrumb Section
+Breadcrumb Section
 -----------------------*/
 
 .breadcrumb-section {

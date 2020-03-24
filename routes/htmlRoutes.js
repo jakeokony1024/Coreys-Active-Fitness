@@ -5,7 +5,6 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
       res.render("index", {
-        style: "style.css",
         msg: "Welcome!",
         examples: dbUser
       });
