@@ -2,14 +2,14 @@
   "development": {
     "username": "root",
     "password": "tomsucks12",
-    "database": "",
+    "database": "coreysFitnessdb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "testdb",
+    "password": "tomsucks12",
+    "database": "coreysFitnessdb",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
