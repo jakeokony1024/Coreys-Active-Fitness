@@ -14,7 +14,6 @@ module.exports = function(app) {
   app.get("/classes", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
       res.render("classes", {
-        style: "style.css",
         msg: "Welcome!",
         examples: dbUser
       });
@@ -24,7 +23,6 @@ module.exports = function(app) {
   app.get("/contact", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
       res.render("contact", {
-        style: "style.css",
         msg: "Welcome!",
         examples: dbUser
       });
@@ -34,7 +32,6 @@ module.exports = function(app) {
   app.get("/gallery", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
       res.render("gallery", {
-        style: "style.css",
         msg: "Welcome!",
         examples: dbUser
       });
@@ -45,7 +42,15 @@ module.exports = function(app) {
   app.get("/about-us", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
       res.render("about-us", {
-        style: "style.css",
+        msg: "Welcome!",
+        examples: dbUser
+      });
+    });
+  });
+
+  app.get("/userpage", function(req, res) {
+    db.User.findAll({}).then(function(dbUser) {
+      res.render("about-us", {
         msg: "Welcome!",
         examples: dbUser
       });
