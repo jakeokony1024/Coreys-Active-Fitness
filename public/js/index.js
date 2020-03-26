@@ -30,23 +30,6 @@ var API = {
   }
 };
 
-var Nylas = require('nylas');
-
-Nylas.config({
-    clientId: "ez7fmdadjwbw043o7h7ldyq7x",
-    clientSecret: "7qpppiqb6roj2vsyhszumy7g7",
-});
-
-var nylas = Nylas.with(ACCESS_TOKEN);
-
-// Most user accounts have multiple calendars where events are stored
-nylas.calendars.list().then(calendars => {
-    for (let calendar of calendars) {
-        // Print the name of each calendar, it's ID, and whether or not the calendar is read only
-        console.log(`Name: ${calendar.name} | Description: ${calendar.description} | ID: ${calendar.id} | Read Only: ${calendar.readOnly}`);
-    }
-});
-
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
