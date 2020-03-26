@@ -2114,6 +2114,7 @@ Breadcrumb Section
 /* Large Mobile: 480px */
 
 @media only screen and (max-width: 767px) {
+
 	.slicknav_menu {
 		display: block;
 		background: transparent;
