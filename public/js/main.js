@@ -124,14 +124,14 @@
   });
 
   /*------------------
-       Schedule Filter
+    Schedule Filter
     --------------------*/
   $(".nav-controls ul li").on("click", function() {
     var tsfilter = $(this).data("tsfilter");
     $(".nav-controls ul li").removeClass("active");
     $(this).addClass("active");
 
-    if (tsfilter == "all") {
+    if (tsfilter === "all") {
       $(".schedule-table").removeClass("filtering");
       $(".ts-item").removeClass("show");
     } else {
@@ -139,9 +139,26 @@
     }
     $(".ts-item").each(function() {
       $(this).removeClass("show");
-      if ($(this).data("tsmeta") == tsfilter) {
+      if ($(this).data("tsmeta") === tsfilter) {
         $(this).addClass("show");
       }
     });
+  });
+
+  $(".signup-btn").on("click", function(event) {
+    event.preventDefault();
+    var userData = {
+      weight: $("#weightInput")
+        .val()
+        .trim(),
+      height: $("#heightInput")
+        .val()
+        .trim(),
+      notes: $("#notesInput")
+        .val()
+        .trim()
+    };
+    console.log(userData);
+    $.post(userData);
   });
 })(jQuery);
