@@ -46,3 +46,26 @@ PACKAGES
 FOr every user we need to create a calendar 
 
 
+
+
+
+
+NEXT STEPS: 
+
+Enable or remove workout tracker 
+
+Remove register now box at bottom, replace with link to sign up or login
+
+Fix contact info in footer 
+
+add in social links
+
+add log in page, add routes in htmlroutes.js
+
+enable message button to work, and send message to corey 
+
+set up api routes, need a post for creating user, a get for finding users to compare with and a delete for removing your account. (seperate page possibly?)
+
+Create custom domain name (requires pay to do so)
+
+
