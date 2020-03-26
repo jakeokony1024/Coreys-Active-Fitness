@@ -1,64 +1,33 @@
-var db = require("../models");
+// var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbUser
-      });
-    });
+    res.render("index");
   });
-
+  //load classes page
   app.get("/classes", function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.render("classes", {
-        msg: "Welcome!",
-        examples: dbUser
-      });
-    });
+    res.render("classes");
   });
-
+  //load contact page
   app.get("/contact", function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.render("contact", {
-        msg: "Welcome!",
-        examples: dbUser
-      });
-    });
+    res.render("contact");
   });
-
+  //load img gallery
   app.get("/gallery", function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.render("gallery", {
-        msg: "Welcome!",
-        examples: dbUser
-      });
-    });
+    res.render("gallery");
   });
-
-  // Load example page and pass in an example by id
+  //load about-us page
   app.get("/about-us", function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.render("about-us", {
-        msg: "Welcome!",
-        examples: dbUser
-      });
-    });
+    res.render("about-us");
   });
-
-  app.get("/userpage", function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.render("about-us", {
-        msg: "Welcome!",
-        examples: dbUser
-      });
-    });
+  //load user homepage
+  app.get("/user", function(req, res) {
+    res.render("user");
   });
-
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
   });
+
 };
