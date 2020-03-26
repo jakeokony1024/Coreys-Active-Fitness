@@ -2115,6 +2115,9 @@ Breadcrumb Section
 
 @media only screen and (max-width: 767px) {
 
+	.classes-timetable {
+		width: 80%;
+	}
 	.slicknav_menu {
 		display: block;
 		background: transparent;
