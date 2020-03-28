@@ -174,6 +174,21 @@
     $("#weightInput").val("");
     $("#heightInput").val("");
     $("#notesInput").val("");
-    console.log(userData);
+
+    var settings = {
+      async: true,
+      crossDomain: true,
+      url:
+        "https://gabamnml-health-v1.p.rapidapi.com/bmi?weight=60&height=1.70",
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "gabamnml-health-v1.p.rapidapi.com",
+        "x-rapidapi-key": "a319d638b0msh397c0e24b21a62fp1a2660jsnc7f7e0f81537"
+      }
+    };
+
+    $.ajax(settings).then(function(response) {
+      console.log(response);
+    });
   });
 })(jQuery);
