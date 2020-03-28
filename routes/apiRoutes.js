@@ -1,24 +1,31 @@
+const { QueryTypes } = require('sequelize');
+
 var db = require("../models");
 
-module.exports = function(app) {
-  // Get all users
-  app.get("/api/user", function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
+var userLogin = {};
 
-  // Create a new user
-  app.post("/api/user", function(req, res) {
-    db.User.create(req.body).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
+module.exports = function (app) {
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.User.destroy({ where: { id: req.params.id } }).then(function(dbUser) {
-      res.json(dbUser);
+  app.post('/api/login', function (request, response) {
+    db.sequelize.query(`select * from Users where user_email='${request.body.email}' and user_password='${request.body.password}'`, { 
+      type: QueryTypes.SELECT
+    }).then(function(userLogin) {
+        response.render("user", {
+          user: userLogin[0].user_fname
+        })
+      });
+    });
+
+  app.post('/api/signup', function (request, response) {
+    db.User.create({
+      user_fname: request.body.firstname,
+      user_lname: request.body.lastname,
+      user_email: request.body.email,
+      user_password: request.body.password
+    })
+    .then(function(userSignup) {
+      response.redirect("/login")
     });
   });
 };
+
