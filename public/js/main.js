@@ -148,10 +148,10 @@
   $(".submit-btn").on("click", function(event) {
     event.preventDefault();
     var userData = {
-      weight: $("#weightInput")
+      height: $("#heightInput")
         .val()
         .trim(),
-      height: $("#heightInput")
+      weight: $("#weightInput")
         .val()
         .trim(),
       goals: $("#goalsInput").val(),
@@ -160,11 +160,11 @@
         .trim()
     };
     $("#userStats").append(
-      "<p> Weight:  " +
-        userData.weight +
-        "</p>" +
-        "<p> Height:  " +
+      "<p> Height:  " +
         userData.height +
+        "lbs</p>" +
+        "<p> Weight:  " +
+        userData.weight +
         "</p>" +
         "<p> Workout Notes: " +
         userData.notes +
@@ -175,6 +175,7 @@
     $("#heightInput").val("");
     $("#notesInput").val("");
 
+    var apiKey = "a319d638b0msh397c0e24b21a62fp1a2660jsnc7f7e0f81537";
     var settings = {
       async: true,
       crossDomain: true,
@@ -183,12 +184,13 @@
       method: "GET",
       headers: {
         "x-rapidapi-host": "gabamnml-health-v1.p.rapidapi.com",
-        "x-rapidapi-key": "a319d638b0msh397c0e24b21a62fp1a2660jsnc7f7e0f81537"
+        "x-rapidapi-key": apiKey
       }
     };
 
     $.ajax(settings).then(function(response) {
       console.log(response);
+      console.log(response.status);
     });
   });
 })(jQuery);

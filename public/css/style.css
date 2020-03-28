@@ -379,6 +379,12 @@ ol {
 	margin-bottom: 44px;
 }
 
+.container2, 
+#userStats {
+	padding-top: 20px;
+	margin: auto;
+	text-align: center;
+}
 /*---------------------
   About Section
 -----------------------*/
@@ -1436,27 +1442,7 @@ Breadcrumb Section
 }
 
 /*---------------------
-  Gym Award Section
------------------------*/
-
-.award-text {
-	padding-top: 20px;
-}
-
-.award-text h2 {
-	font-size: 40px;
-	font-weight: 600;
-	color: #111111;
-	text-transform: uppercase;
-	margin-bottom: 20px;
-}
-
-.award-text p {
-	margin-bottom: 10px;
-}
-
-/*---------------------
-  Gallery Section
+Gallery Section
 -----------------------*/
 
 .gallery-section {
@@ -1794,29 +1780,7 @@ Breadcrumb Section
 }
 
 /*---------------------
-  Map Section
------------------------*/
-
-.map {
-	height: 612px;
-	position: relative;
-}
-
-.map iframe {
-	width: 100%;
-}
-
-.map img {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	-webkit-transform: translate(-14px, -21px);
-	-ms-transform: translate(-14px, -21px);
-	transform: translate(-14px, -21px);
-}
-
-/*---------------------
-  Contact Section
+Contact Section
 -----------------------*/
 
 .contact-info h4 {
