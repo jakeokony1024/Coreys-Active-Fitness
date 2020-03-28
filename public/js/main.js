@@ -145,7 +145,7 @@
     });
   });
 
-  $(".signup-btn").on("click", function(event) {
+  $(".submit-btn").on("click", function(event) {
     event.preventDefault();
     var userData = {
       weight: $("#weightInput")
@@ -154,11 +154,26 @@
       height: $("#heightInput")
         .val()
         .trim(),
+      goals: $("#goalsInput").val(),
       notes: $("#notesInput")
         .val()
         .trim()
     };
+    $("#userStats").append(
+      "<p> Weight:  " +
+        userData.weight +
+        "</p>" +
+        "<p> Height:  " +
+        userData.height +
+        "</p>" +
+        "<p> Workout Notes: " +
+        userData.notes +
+        "</p>"
+    );
     console.log(userData);
-    $.post(userData);
+    $("#weightInput").val("");
+    $("#heightInput").val("");
+    $("#notesInput").val("");
+    console.log(userData);
   });
 })(jQuery);

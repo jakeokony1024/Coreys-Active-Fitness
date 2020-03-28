@@ -1,4 +1,4 @@
-// var db = require("../models");
+var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
@@ -24,6 +24,14 @@ module.exports = function(app) {
   //load user homepage
   app.get("/user", function(req, res) {
     res.render("user");
+  });
+
+  app.get("/signup", function(req, res) {
+    res.render("signup");
+  });
+
+  app.get("/login", function(req, res) {
+    res.render("login");
   });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

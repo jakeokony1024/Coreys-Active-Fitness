@@ -1,24 +1,23 @@
 var db = require("../models");
-
-module.exports = function(app) {
-  // Get all users
-  app.get("/api/user", function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.json(dbUser);
+module.exports = function (app) {
+  app.post('/api/login', function (request, response) {
+    console.log(request.body.email);
+    db.sequelize.query(`select createdAt from Users where user_email='${request.body.email}' and user_password='${request.body.password}'`)
+      .then(function(userLogin) {
+        console.log(userLogin);
+        //response.json(userLogin);
+        response.redirect("/userpage")
+      });
     });
-  });
-
-  // Create a new user
-  app.post("/api/user", function(req, res) {
-    db.User.create(req.body).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.User.destroy({ where: { id: req.params.id } }).then(function(dbUser) {
-      res.json(dbUser);
+  app.post('/api/signup', function (request, response) {
+    db.User.create({
+      user_fname: request.body.firstname,
+      user_lname: request.body.lastname,
+      user_email: request.body.email,
+      user_password: request.body.password
+    })
+    .then(function(userSignup) {
+      response.redirect("/userpage")
     });
   });
 };
