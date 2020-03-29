@@ -29,6 +29,7 @@
     if ($(".gallery-filter").length > 0) {
       var containerEl = document.querySelector(".gallery-filter");
       var mixer = mixitup(containerEl);
+      mixer;
     }
   });
 
@@ -137,9 +138,26 @@
         .val()
         .trim()
     };
-    // eslint-disable-next-line prettier/prettier
-    var queryURL = "https://gabamnml-health-v1.p.rapidapi.com/bmi?weight=" + userData.weight + "&height=" + userData.height;
+    $("#weightInput").val("");
+    $("#heightInput").val("");
+    $("#notesInput").val("");
 
+    updateUser(userData);
+    function updateUser(userData) {
+      return $.ajax({
+        method: "POST",
+        url: "/api/profile/",
+        data: JSON.stringify(userData)
+      }).then(function() {
+        window.location.href = "/user";
+      });
+    }
+
+    var queryURL =
+      "https://gabamnml-health-v1.p.rapidapi.com/bmi?weight=" +
+      userData.weight +
+      "&height=" +
+      userData.height;
     var apiKey = "a319d638b0msh397c0e24b21a62fp1a2660jsnc7f7e0f81537";
     var settings = {
       async: true,
@@ -152,9 +170,6 @@
       }
     };
     $.ajax(settings).then(function(response) {
-      console.log(response);
-      console.log(response.status);
-      console.log(response.status);
       $("#userStats").html(
         "<p> Height:  " +
           userData.height +
@@ -173,8 +188,5 @@
           "</p>"
       );
     });
-    $("#weightInput").val("");
-    $("#heightInput").val("");
-    $("#notesInput").val("");
   });
 })(jQuery);

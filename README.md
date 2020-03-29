@@ -52,7 +52,6 @@ FOr every user we need to create a calendar
 
 NEXT STEPS: 
 
-add in social links
 
 add log in page, add routes in htmlroutes.js
 
