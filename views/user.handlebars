@@ -20,7 +20,7 @@
                     <li><a href="/contact">Contacts</a></li>
                 </ul>
             </nav>
-            <a href="/signup" class="primary-btn signup-btn">Sign Out</a>
+            <a href="/signout" class="primary-btn signup-btn">Sign Out</a>
         </div>
         <div id="mobile-menu-wrap"></div>
 
@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                    <h2>Home Page</h2>
+                        <h2>Welcome {{user}}</h2>
                 </div>
             </div>
         </div>
@@ -47,19 +47,19 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-4">
-            <form>
+        <div class="col-lg-6">
+            <form action="/api/profile" method="POST">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Enter Height</label>
-                    <input type="number" class="form-control" id="heightInput" placeholder="5'9">
+                    <input type="number" class="form-control" name="heightInput" placeholder="5'9">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Enter Current Weight</label>
-                    <input type="number" class="form-control" id="weightInput" placeholder="185lbs">
+                    <input type="number" class="form-control" name="weightInput" placeholder="185lbs">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Goals</label>
-                    <select class="form-control" id="goalsInput">
+                    <select class="form-control" name="goalsInput">
                         <option>Lose Weight</option>
                         <option>Gain Serious Mass</option>
                         <option>Cardio and Heart Health</option>
@@ -67,13 +67,13 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Motivational quotes, or notes from your workouts</label>
-                    <textarea class="form-control" id="notesInput" rows="3"></textarea>
+                    <textarea class="form-control" name="notesInput" rows="3"></textarea>
                 </div>
                 <button class="primary-btn submit-btn">Submit</button>
             </form>
         </div>
         <div class="container2">
-            <div class="col-lg-8">
+            <div class="col-lg-6">
                 <h3>Current Stats</h3>
                 <div id="userStats"></div>
             </div>
