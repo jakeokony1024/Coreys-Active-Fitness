@@ -1,37 +1,38 @@
+/* eslint-disable camelcase */
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     user_fname: {
       type: DataTypes.STRING,
-      allowNull: false,
-    }, 
+      allowNull: false
+    },
     user_lname: {
       type: DataTypes.STRING,
-      allowNull: false,
-    }, 
+      allowNull: false
+    },
     user_email: {
       type: DataTypes.STRING,
-      allowNull: false,
-    }, 
+      allowNull: false
+    },
     user_password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     user_height: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: true
     },
     user_weight: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: true
     },
     user_goals: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: true
     },
     user_notes: {
       type: DataTypes.TEXT,
-      allowNull: true,
-    }   
-  })
+      allowNull: true
+    }
+  });
   return User;
 };

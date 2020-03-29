@@ -44,53 +44,54 @@
     </div>
 </section>
 <!-- Breadcrumb Section End -->
-<br>
+
 <div class="container">
-        <form action="/api/profile" method="POST"> 
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Enter Height</label>
-                <input type="text" class="form-control" name="heightInput" placeholder="5'9">
+    <div class="row">
+        <div class="col-lg-6">
+            <form action="/api/profile" method="POST">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Enter Height</label>
+                    <input type="number" class="form-control" name="heightInput" placeholder="5'9">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Enter Current Weight</label>
+                    <input type="number" class="form-control" name="weightInput" placeholder="185lbs">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Goals</label>
+                    <select class="form-control" name="goalsInput">
+                        <option>Lose Weight</option>
+                        <option>Gain Serious Mass</option>
+                        <option>Cardio and Heart Health</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Motivational quotes, or notes from your workouts</label>
+                    <textarea class="form-control" name="notesInput" rows="3"></textarea>
+                </div>
+                <button class="primary-btn submit-btn">Submit</button>
+            </form>
+        </div>
+        <div class="container2">
+            <div class="col-lg-6">
+                <h3>Current Stats</h3>
+                <div id="userStats"></div>
             </div>
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Enter Current Weight</label>
-                <input type="text" class="form-control" name="weightInput" placeholder="185lbs">
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Goals</label>
-                <select class="form-control" name="goalsInput">
-                    <option>Lose Weight</option>
-                    <option>Gain Serious Mass</option>
-                    <option>Cardio and Heart Health</option>
-
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Motivational quotes, or notes from your workouts</label>
-                <textarea class="form-control" name="notesInput" rows="3"></textarea>
-            </div>
-            <button type="submit" class="primary-btn signup-btn">Submit</button>
-        </form>
-
-
-
-    <div class="container2">
-        <h3>Current Stats</h3>
-        <div id="userStats"></div>
+        </div>
     </div>
-        <!-- Register Section Begin -->
-        <section class="classes-timetable spad">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <iframe src='https://www.timetap.com/emb/327199' frameborder='0' width='1200' height='600'>
-                            <a href='https://www.timetap.com/book/BOOKUTBOOTCAMP' target='_blank'> <img
-                                    src='https://www.timetap.com/buttons/schedule-appointment-yellow.png' width='192'
-                                    height='32' border='0' alt='Schedule Appointment' /> </a></iframe>
-                    </div>
+    <br>
+    <section class="classes-timetable spad" id="timeTap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <iframe src='https://www.timetap.com/emb/327199' frameborder='0' width='1200' height='600'>
+                        <a href='https://www.timetap.com/book/BOOKUTBOOTCAMP' target='_blank'> <img
+                                src='https://www.timetap.com/buttons/schedule-appointment-yellow.png' width='192'
+                                height='32' border='0' alt='Schedule Appointment' /> </a></iframe>
                 </div>
             </div>
-        </section>
-        <!-- Trainer Table Schedule Section End -->
+        </div>
+    </section>
 </div>
 
 <!-- Footer Section Begin -->
@@ -103,11 +104,11 @@
                     <p>(619) 572-0824</p>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="contact-option">
-                <span>Address</span>
-                <p>72 Kangnam, 45 Opal Point Suite 391</p>
+            <div class="col-lg-4">
+                <div class="contact-option">
+                    <span>Address</span>
+                    <p>2310 Manor Rd. Austin, Tx</p>
+                </div>
             </div>
             <div class="col-lg-4">
                 <div class="contact-option">
@@ -116,26 +117,26 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="copyright-text">
-        <ul>
-            <li><a href="#">Term&Use</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-        </ul>
-        <p>&copy;<p>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
-                is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                    target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        <div class="copyright-text">
+            <ul>
+                <li><a href="#">Term&Use</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p>&copy;<p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+                    is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                        target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
             </p>
-        </p>
-        <div class="footer-social">
-                <a href="#"><i class="fa fa-facebook"> <img src="/img/facebook-logo.png" alt=""></i></a>
-                <a href="#"><i class="fa fa-twitter"><img src="/img/twitter-logo.png" alt=""></i></a>
-                <a href="#"><i class="fa fa-instagram"><img src="/img/instagram-logo.jpg" alt=""></i></a>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/corey.blackmon.142"><i class="fa fa-facebook"><img
+                            src="/img/facebook-logo.png" alt=""></i></a>
+                <a href="https://twitter.com/CoreyBlackmon8"><i class="fa fa-twitter"><img src="/img/twitter-logo.png"
+                            alt=""></i></a>
             </div>
-    </div>
+        </div>
     </div>
 </footer>

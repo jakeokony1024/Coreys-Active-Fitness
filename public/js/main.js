@@ -29,6 +29,7 @@
     if ($(".gallery-filter").length > 0) {
       var containerEl = document.querySelector(".gallery-filter");
       var mixer = mixitup(containerEl);
+      mixer;
     }
   });
 
@@ -123,29 +124,69 @@
       );
   });
 
-  /*------------------
-    Schedule Filter
-    --------------------*/
-  $(".nav-controls ul li").on("click", function() {
-    var tsfilter = $(this).data("tsfilter");
-    $(".nav-controls ul li").removeClass("active");
-    $(this).addClass("active");
+  $(".submit-btn").on("click", function(event) {
+    event.preventDefault();
+    var userData = {
+      height: $("#heightInput")
+        .val()
+        .trim(),
+      weight: $("#weightInput")
+        .val()
+        .trim(),
+      goals: $("#goalsInput").val(),
+      notes: $("#notesInput")
+        .val()
+        .trim()
+    };
+    $("#weightInput").val("");
+    $("#heightInput").val("");
+    $("#notesInput").val("");
 
-    if (tsfilter === "all") {
-      $(".schedule-table").removeClass("filtering");
-      $(".ts-item").removeClass("show");
-    } else {
-      $(".schedule-table").addClass("filtering");
+    updateUser(userData);
+    function updateUser(userData) {
+      return $.ajax({
+        method: "POST",
+        url: "/api/profile/",
+        data: JSON.stringify(userData)
+      }).then(function() {
+        window.location.href = "/user";
+      });
     }
-    $(".ts-item").each(function() {
-      $(this).removeClass("show");
-      if ($(this).data("tsmeta") === tsfilter) {
-        $(this).addClass("show");
+
+    var queryURL =
+      "https://gabamnml-health-v1.p.rapidapi.com/bmi?weight=" +
+      userData.weight +
+      "&height=" +
+      userData.height;
+    var apiKey = "a319d638b0msh397c0e24b21a62fp1a2660jsnc7f7e0f81537";
+    var settings = {
+      async: true,
+      crossDomain: true,
+      url: queryURL,
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "gabamnml-health-v1.p.rapidapi.com",
+        "x-rapidapi-key": apiKey
       }
+    };
+    $.ajax(settings).then(function(response) {
+      $("#userStats").html(
+        "<p> Height:  " +
+          userData.height +
+          "</p>" +
+          "<p> Weight:  " +
+          userData.weight +
+          "lbs</p>" +
+          "<p> Workout Notes: " +
+          userData.notes +
+          "</p>" +
+          "<p> Weight Type: " +
+          response.status +
+          "</p>" +
+          "<p> BMI: " +
+          response.result +
+          "</p>"
+      );
     });
   });
-
-
-
-
 })(jQuery);

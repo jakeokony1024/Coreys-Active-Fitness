@@ -1,7 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var session = require('client-sessions');
+var session = require("client-sessions");
 
 var db = require("./models");
 var app = express();
@@ -13,12 +13,14 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(express.static("files"));
 
-app.use(session({
-  cookieName: 'session',
-  secret: '051944c68c6bb5fe9749ba9a',
-  duration: 30 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000,
-}));
+app.use(
+  session({
+    cookieName: "session",
+    secret: "051944c68c6bb5fe9749ba9a",
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000
+  })
+);
 // Handlebars
 app.engine(
   "handlebars",
