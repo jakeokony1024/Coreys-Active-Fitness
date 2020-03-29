@@ -180,7 +180,10 @@
       async: true,
       crossDomain: true,
       url:
-        "https://gabamnml-health-v1.p.rapidapi.com/bmi?weight=60&height=1.70",
+        "https://gabamnml-health-v1.p.rapidapi.com/bmi?weight=" +
+        userData.weight +
+        "&height=" +
+        userData.height,
       method: "GET",
       headers: {
         "x-rapidapi-host": "gabamnml-health-v1.p.rapidapi.com",
