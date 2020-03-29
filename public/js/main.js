@@ -145,20 +145,7 @@
     });
   });
 
-  $(".signup-btn").on("click", function(event) {
-    event.preventDefault();
-    var userData = {
-      weight: $("#weightInput")
-        .val()
-        .trim(),
-      height: $("#heightInput")
-        .val()
-        .trim(),
-      notes: $("#notesInput")
-        .val()
-        .trim()
-    };
-    console.log(userData);
-    $.post(userData);
-  });
+
+
+
 })(jQuery);

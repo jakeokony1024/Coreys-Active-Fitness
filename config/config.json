@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Apple123!",
-    "database": "workout_db",
+    "database": "coreysFitnessdb",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

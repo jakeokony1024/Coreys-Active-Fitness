@@ -1,6 +1,3 @@
-// var db = require("../models");
-// Data
-var user =
 module.exports = function (app) {
   // Load index page
   app.get("/", function (req, res) {
@@ -23,8 +20,15 @@ module.exports = function (app) {
     res.render("about-us");
   });
   //load user homepage
-  app.get("/user", function (req, res) {
-    res.render("user");
+  app.get("/user", function (request, response) {
+    if (request.session && request.session.user) { // Check if session exists
+      // lookup the user in the DB by pulling their email from the session
+      response.render("user", {
+        user: request.session.user.user_fname
+      });
+    }else {
+      response.redirect("/")
+    };
   });
   //load user signup page
   app.get("/signup", function (req, res) {
@@ -33,6 +37,10 @@ module.exports = function (app) {
   //load user login page
   app.get("/login", function (req, res) {
     res.render("login");
+  });
+  app.get("/signout", function (request, response) {
+    request.session.reset();
+    response.redirect('/');
   });
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
