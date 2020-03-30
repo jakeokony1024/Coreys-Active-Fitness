@@ -125,73 +125,68 @@
       );
   });
 
+  $(".contact-btn").on("click", function() {
+    $("input[name = 'name']").val("");
+    $("input[name = 'email']").val("");
+    $("input[name = 'mobile-number']").val("");
+    $("textarea[name = 'message']").val("");
+    location.window.href = "/contact";
+  });
+
   var $height = $("input[name = 'heightInput']");
   var $weight = $("input[name = 'weightInput']");
   var $goals = $("select[name = 'goalsInput']");
   var $notes = $("textarea[name = 'notesInput']");
-  function updateUser(userData) {
-    $.ajax({
-      method: "POST",
-      url: "/api/profile",
-      data: JSON.stringify(userData)
-    });
-  }
+
   $(".submit-btn").on("click", function(event) {
     event.preventDefault();
     var userData = {
-      user_height: $height.val().trim(),
-      user_weight: $weight.val().trim(),
-      user_goals: $$goals.val(),
-      user_notes: $notes.val().trim()
+      heightInput: $height.val().trim(),
+      weightInput: $weight.val().trim(),
+      goalsInput: $goals.val(),
+      notesInput: $notes.val().trim()
     };
+
+    $.ajax({
+      type: "POST",
+      url: "/api/profile",
+      data: userData,
+      success: function(newData) {
+        console.log(newData);
+      },
+      error: function() {
+        console.log("error posting data");
+      }
+    });
 
     $("input[name = 'heightInput']").val("");
     $("input[name = 'weightInput']").val("");
     $("textarea[name = 'notesInput']").val("");
-    updateUser(
-      userData.height,
-      userData.weight,
-      userData.goals,
-      userData.notes
-    );
   });
 
-  $(".bmi-btn").on("click", function(event) {
-    event.preventDefault();
-    var queryURL =
-      "https://gabamnml-health-v1.p.rapidapi.com/bmi?weight=" +
-      userData.weight +
-      "&height=" +
-      userData.height;
-    var apiKey = "a319d638b0msh397c0e24b21a62fp1a2660jsnc7f7e0f81537";
-    var settings = {
-      async: true,
-      crossDomain: true,
-      url: queryURL,
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "gabamnml-health-v1.p.rapidapi.com",
-        "x-rapidapi-key": apiKey
-      }
-    };
-    $.ajax(settings).then(function(response) {
-      $("#userStats").html(
-        "<p> Height:  " +
-          userData.height +
-          "</p>" +
-          "<p> Weight:  " +
-          userData.weight +
-          "lbs</p>" +
-          "<p> Workout Notes: " +
-          userData.notes +
-          "</p>" +
-          "<p> Weight Type: " +
-          response.status +
-          "</p>" +
-          "<p> BMI: " +
-          response.result +
-          "</p>"
-      );
-    });
-  });
+  // $(".bmi-btn").on("click", function() {
+  //   $.ajax({
+  //     type: "GET",
+  //     url: "/api/profile"
+  //   }).then(function(response) {
+  //     console.log(response);
+  //     // $("#userStats").html(
+  //     //   "<p> Height:  " +
+  //     //     userData.height +
+  //     //     "</p>" +
+  //     //     "<p> Weight:  " +
+  //     //     userData.weight +
+  //     //     "lbs</p>" +
+  //     //     "<p> Workout Notes: " +
+  //     //     userData.notes +
+  //     //     "</p>" +
+  //     //     "<p> Weight Type: " +
+  //     //     response.status +
+  //     //     "</p>" +
+  //     //     "<p> BMI: " +
+  //     //     response.result +
+  //     //     "</p>"
+  //     // );
+  //   });
+  // });
 })(jQuery);

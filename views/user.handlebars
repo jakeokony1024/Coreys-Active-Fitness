@@ -50,12 +50,12 @@
         <div class="col-lg-4">
             <form action="/api/profile" method="POST">
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Enter Height</label>
-                    <input type="number" class="form-control" name="heightInput" placeholder="5'9">
+                    <label for="exampleFormControlInput1">Enter Height (ft)</label>
+                    <input type="number" class="form-control" name="heightInput" placeholder="5.9">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Enter Current Weight</label>
-                    <input type="number" class="form-control" name="weightInput" placeholder="185lbs">
+                    <label for="exampleFormControlInput1">Enter Current Weight (lbs)</label>
+                    <input type="number" class="form-control" name="weightInput" placeholder="185">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Goals</label>
@@ -70,7 +70,7 @@
                     <textarea class="form-control" name="notesInput" rows="3"></textarea>
                 </div>
                 <button class="primary-btn submit-btn">Submit</button>
-                <button class="primary-btn bmi-btn">Calculate BMI</button>
+                {{!-- <button class="primary-btn bmi-btn">Calculate BMI</button> --}}
             </form>
         </div>
         <div class="container2">
