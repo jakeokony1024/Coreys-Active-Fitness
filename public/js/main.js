@@ -124,35 +124,49 @@
       );
   });
 
+  function updateUser(userData) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      url: "api/profile",
+      data: JSON.stringify(
+        userData.height,
+        userData.weight,
+        userData.goals,
+        userData.notes
+      )
+    });
+  }
   $(".submit-btn").on("click", function(event) {
     event.preventDefault();
     var userData = {
-      height: $("#heightInput")
+      height: $("input[name = 'heightInput']")
         .val()
         .trim(),
-      weight: $("#weightInput")
+      weight: $("input[name = 'weightInput']")
         .val()
         .trim(),
-      goals: $("#goalsInput").val(),
-      notes: $("#notesInput")
+      goals: $("select[name = 'goalsInput']").val(),
+      notes: $("textarea[name = 'notesInput']")
         .val()
         .trim()
     };
-    $("#weightInput").val("");
-    $("#heightInput").val("");
-    $("#notesInput").val("");
 
-    updateUser(userData);
-    function updateUser(userData) {
-      return $.ajax({
-        method: "POST",
-        url: "/api/profile/",
-        data: JSON.stringify(userData)
-      }).then(function() {
-        window.location.href = "/user";
-      });
-    }
+    $("input[name = 'heightInput']").val("");
+    $("input[name = 'weightInput']").val("");
+    $("textarea[name = 'notesInput']").val("");
+    updateUser(
+      userData.height,
+      userData.weight,
+      userData.goals,
+      userData.notes
+    );
+  });
 
+  $(".bmi-btn").on("click", function(event) {
+    event.preventDefault();
     var queryURL =
       "https://gabamnml-health-v1.p.rapidapi.com/bmi?weight=" +
       userData.weight +
