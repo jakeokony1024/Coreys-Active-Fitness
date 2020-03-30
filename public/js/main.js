@@ -125,18 +125,10 @@
   });
 
   function updateUser(userData) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
+    $.post({
       method: "POST",
-      url: "api/profile",
-      data: JSON.stringify(
-        userData.height,
-        userData.weight,
-        userData.goals,
-        userData.notes
-      )
+      url: "/api/profile",
+      data: JSON.stringify(userData)
     });
   }
   $(".submit-btn").on("click", function(event) {
