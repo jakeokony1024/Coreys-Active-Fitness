@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /*  ---------------------------------------------------
     Template Name: Gutim
     Description: Gutim Fitness HTML Template
@@ -124,8 +125,12 @@
       );
   });
 
+  var $height = $("input[name = 'heightInput']");
+  var $weight = $("input[name = 'weightInput']");
+  var $goals = $("select[name = 'goalsInput']");
+  var $notes = $("textarea[name = 'notesInput']");
   function updateUser(userData) {
-    $.post({
+    $.ajax({
       method: "POST",
       url: "/api/profile",
       data: JSON.stringify(userData)
@@ -134,16 +139,10 @@
   $(".submit-btn").on("click", function(event) {
     event.preventDefault();
     var userData = {
-      height: $("input[name = 'heightInput']")
-        .val()
-        .trim(),
-      weight: $("input[name = 'weightInput']")
-        .val()
-        .trim(),
-      goals: $("select[name = 'goalsInput']").val(),
-      notes: $("textarea[name = 'notesInput']")
-        .val()
-        .trim()
+      user_height: $height.val().trim(),
+      user_weight: $weight.val().trim(),
+      user_goals: $$goals.val(),
+      user_notes: $notes.val().trim()
     };
 
     $("input[name = 'heightInput']").val("");
