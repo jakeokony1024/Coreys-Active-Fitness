@@ -126,11 +126,11 @@
   });
 
   $(".contact-btn").on("click", function() {
+    location.window.href = "/contact";
     $("input[name = 'name']").val("");
     $("input[name = 'email']").val("");
     $("input[name = 'mobile-number']").val("");
     $("textarea[name = 'message']").val("");
-    location.window.href = "/contact";
   });
 
   var $height = $("input[name = 'heightInput']");
