@@ -189,9 +189,10 @@
       };
 
       $.ajax(settings).done(function(resp) {
-        console.log(resp);
+          var bmi = resp.result;
+          var finalBMI = bmi.toFixed(2);
         $("#myWeightType").text(resp.status);
-        $("#myBMI").text(resp.result);
+        $("#myBMI").text(finalBMI);
       });
     });
   });
