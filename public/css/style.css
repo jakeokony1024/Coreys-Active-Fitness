@@ -307,6 +307,7 @@ ol {
 	font-weight: 600;
 	padding: 28px 0;
 	position: relative;
+	text-decoration: none;
 }
 
 .nav-menu .mainmenu ul li a:hover:after {
@@ -325,15 +326,18 @@ ol {
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
+	text-decoration: none;
 }
 
 .nav-menu .signup-btn {
 	display: inline-block;
 	margin: 16px 0px 16px 30px;
+	text-decoration: none;
 }
 
 .nav-menu .signup-btn:after {
 	opacity: 0;
+	text-decoration: none;
 }
 
 .slicknav_menu {
