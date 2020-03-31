@@ -25,7 +25,10 @@ module.exports = function(app) {
       // Check if session exists
       // lookup the user in the DB by pulling their email from the session
       response.render("user", {
-        user: request.session.user.user_fname
+        user: request.session.user.user_fname,
+        height: request.session.user.user_height,
+        weight: request.session.user.user_weight,
+        notes: request.session.user.user_notes
       });
     } else {
       response.redirect("/");

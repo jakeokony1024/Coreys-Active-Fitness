@@ -31,7 +31,9 @@ body {
 	/* font-smoothing: antialiased;
  */
 }
-
+.stats-heading {
+	text-align: right;
+}
 h1,
 h2,
 h3,

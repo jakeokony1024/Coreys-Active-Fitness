@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                        <h2>Welcome {{user}}</h2>
+                    <h2>Welcome {{user}}</h2>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
     </div>
 </section>
 <!-- Breadcrumb Section End -->
-
+<br>
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Enter Current Weight (lbs)</label>
-                    <input type="number" class="form-control" name="weightInput" placeholder="185lbs">
+                    <input type="number" class="form-control" name="weightInput" placeholder="185">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Goals</label>
@@ -70,16 +70,49 @@
                 </div>
                 <button class="primary-btn submit-btn">Submit</button>
             </form>
-                <button class="primary-btn bmi-btn">Calculate BMI</button>
+
         </div>
-        <div class="container2">
-            <div class="col-lg-8">
-                <h3>Current Stats</h3>
-                <div id="userStats"></div>
+        <div class="col-lg-8">
+            <h2 class="stats-heading">Current Stats</h2>
+            <div id="userStats">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Category</th>
+                            <th scope="col">Current Stats</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Height</th>
+                            <td id="myHeight">{{height}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Weight</th>
+                            <td id="myWeight">{{weight}} lbs</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Weight Type</th>
+                            <td id="myWeightType"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">BMI</th>
+                            <td id="myBMI"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">My Notes</th>
+                            <td id="myNotes">{{notes}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                            <br>
+            <button class="primary-btn bmi-btn">Calculate BMI</button>
+
             </div>
         </div>
     </div>
-    <br>
+    <hr>
+    <h3>Schedule your next session!</h3>
     <section class="classes-timetable spad" id="timeTap">
         <div class="container">
             <div class="row">

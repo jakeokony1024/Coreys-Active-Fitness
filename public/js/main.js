@@ -189,14 +189,9 @@
       };
 
       $.ajax(settings).done(function(resp) {
-        $("#userStats").html(
-          "<p>Obesity Type: " +
-            resp.status +
-            "</p>" +
-            "<p>Body Mass Index: " +
-            resp.result +
-            "</p>"
-        );
+        console.log(resp);
+        $("#myWeightType").text(resp.status);
+        $("#myBMI").text(resp.result);
       });
     });
   });
