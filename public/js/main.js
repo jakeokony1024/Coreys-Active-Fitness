@@ -126,12 +126,12 @@
   });
 
   $(".contact-btn").on("click", function() {
-    location.window.href = "/contact";
-    $("input[name = 'name']").val("");
-    $("input[name = 'email']").val("");
-    $("input[name = 'mobile-number']").val("");
-    $("textarea[name = 'message']").val("");
+    window.location.href = "/contact";
   });
+  $("input[name = 'name']").val("");
+  $("input[name = 'email']").val("");
+  $("input[name = 'mobile-number']").val("");
+  $("textarea[name = 'message']").val("");
 
   var $height = $("input[name = 'heightInput']");
   var $weight = $("input[name = 'weightInput']");
@@ -151,8 +151,8 @@
       type: "POST",
       url: "/api/profile",
       data: userData,
-      success: function(newData) {
-        console.log(newData);
+      success: function() {
+        console.log("post success");
       },
       error: function() {
         console.log("error posting data");
@@ -164,29 +164,40 @@
     $("textarea[name = 'notesInput']").val("");
   });
 
-  // $(".bmi-btn").on("click", function() {
-  //   $.ajax({
-  //     type: "GET",
-  //     url: "/api/profile"
-  //   }).then(function(response) {
-  //     console.log(response);
-  //     // $("#userStats").html(
-  //     //   "<p> Height:  " +
-  //     //     userData.height +
-  //     //     "</p>" +
-  //     //     "<p> Weight:  " +
-  //     //     userData.weight +
-  //     //     "lbs</p>" +
-  //     //     "<p> Workout Notes: " +
-  //     //     userData.notes +
-  //     //     "</p>" +
-  //     //     "<p> Weight Type: " +
-  //     //     response.status +
-  //     //     "</p>" +
-  //     //     "<p> BMI: " +
-  //     //     response.result +
-  //     //     "</p>"
-  //     // );
-  //   });
-  // });
+  $(".bmi-btn").on("click", function() {
+    $.ajax({
+      type: "GET",
+      url: "/api/profile"
+    }).then(function(response) {
+      var convertedHeight = response.user_height / 3.281;
+      var convertedWeight = response.user_weight / 2.205;
+
+      var queryURL =
+        "https://gabamnml-health-v1.p.rapidapi.com/bmi?weight=" +
+        convertedWeight +
+        "&height=" +
+        convertedHeight;
+      var settings = {
+        async: true,
+        crossDomain: true,
+        url: queryURL,
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "gabamnml-health-v1.p.rapidapi.com",
+          "x-rapidapi-key": "a319d638b0msh397c0e24b21a62fp1a2660jsnc7f7e0f81537"
+        }
+      };
+
+      $.ajax(settings).done(function(resp) {
+        $("#userStats").html(
+          "<p>Obesity Type: " +
+            resp.status +
+            "</p>" +
+            "<p>Body Mass Index: " +
+            resp.result +
+            "</p>"
+        );
+      });
+    });
+  });
 })(jQuery);

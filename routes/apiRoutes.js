@@ -46,8 +46,15 @@ module.exports = function (app) {
   });
 
   app.get("/api/profile", function (request, response) {
-    db.User.findAll({}).then(function (profileUser) {
-      response.json(profileUser);
+    db.User.findOne({
+      where: {
+        user_email: request.session.user.user_email,
+        
+      },  type: QueryTypes.SELECT
+    }
+    ).then(function (profile) {
+      console.log(response)
+      response.json(profile);
     });
   });
 };
