@@ -19,7 +19,8 @@ This site makes use of the following tech:
 NEXT STEPS: 
 
 * Set up class pricing and payment options for the different packages. 
-PACKAGES
+
+#PACKAGES#
 
     Beginner - starts the user off with a light workout schedule based on thier BMI, and what has been reccomended by the trainer
 
